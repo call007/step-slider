@@ -6,11 +6,8 @@ function App() {
   return (
     <>
       <h1>StepSlider</h1>
-
       <FirstStepSliderExample />
-      
       <br />
-      
       <SecondStepSliderExample />
     </>
   );
