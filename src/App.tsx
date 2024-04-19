@@ -1,11 +1,11 @@
-import './App.css';
-import { FirstStepSliderExample } from './components/FirstStepSliderExample';
-import { SecondStepSliderExample } from './components/SecondStepSliderExample';
+import "./App.css";
+import { FirstStepSliderExample } from "./components/FirstStepSliderExample";
+import { SecondStepSliderExample } from "./components/SecondStepSliderExample";
 
 function App() {
   return (
     <>
-      <h1>StepSlider test</h1>
+      <h1>StepSlider test 2</h1>
       <FirstStepSliderExample />
       <br />
       <SecondStepSliderExample />
