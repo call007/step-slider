@@ -5,7 +5,7 @@ import { SecondStepSliderExample } from "./components/SecondStepSliderExample";
 function App() {
   return (
     <>
-      <h1>StepSlider test 2</h1>
+      <h1>StepSlider test 3</h1>
       <FirstStepSliderExample />
       <br />
       <SecondStepSliderExample />
