@@ -1,20 +1,20 @@
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import gsap from 'gsap';
-import { Observer } from 'gsap/Observer';
-import { useGSAP } from '@gsap/react';
-import { Props } from './types';
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import gsap from "gsap";
+import { Observer } from "gsap/Observer";
+import { useGSAP } from "@gsap/react";
+import { Props } from "./types";
 
 gsap.registerPlugin(Observer, useGSAP);
 
 type UseController = Pick<
   Props,
-  | 'currentStep'
-  | 'steps'
-  | 'disabledSteps'
-  | 'onCurrentStepChange'
-  | 'onClick'
-  | 'onDragStart'
-  | 'onDragEnd'
+  | "currentStep"
+  | "steps"
+  | "disabledSteps"
+  | "onCurrentStepChange"
+  | "onClick"
+  | "onDragStart"
+  | "onDragEnd"
 >;
 
 export const useController = ({
@@ -39,10 +39,10 @@ export const useController = ({
 
     getBoxSize();
 
-    window.addEventListener('resize', getBoxSize);
+    window.addEventListener("resize", getBoxSize);
 
     return () => {
-      window.removeEventListener('resize', getBoxSize);
+      window.removeEventListener("resize", getBoxSize);
     };
   }, []);
 
@@ -53,7 +53,7 @@ export const useController = ({
 
       Observer.create({
         target: containerRef.current,
-        type: 'touch,pointer',
+        type: "touch,pointer",
         dragMinimum: 3,
         onToggleX(self) {
           startX = self.x ?? 0;
@@ -83,14 +83,14 @@ export const useController = ({
           setIsDragging(true);
           startX = self.startX ?? 0;
           staleCurrentStep = currentStepRef.current;
-          document.documentElement.style.setProperty('cursor', 'ew-resize');
-          document.documentElement.classList.add('reset-all-cursors');
+          document.documentElement.style.setProperty("cursor", "ew-resize");
+          document.documentElement.style.setProperty("pointer-events", "none");
         },
         onDragEnd() {
           onDragEnd?.();
           setIsDragging(false);
-          document.documentElement.style.removeProperty('cursor');
-          document.documentElement.classList.remove('reset-all-cursors');
+          document.documentElement.style.removeProperty("cursor");
+          document.documentElement.style.removeProperty("pointer-events");
         },
         onClick,
       });
