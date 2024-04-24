@@ -1,7 +1,7 @@
 {
-  "name": "step-slider ",
+  "name": "step-slider",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "author": "Ed Shevtsov <call007.ed@gmail.com>",
   "homepage": "https://call007.github.io/step-slider/",
