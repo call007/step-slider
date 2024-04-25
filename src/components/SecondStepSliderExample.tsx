@@ -1,9 +1,19 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { StepSliderInput } from "./StepSliderInput";
 
 export function SecondStepSliderExample() {
   const [currentStep, setCurrentStep] = useState(0);
   const [value, setValue] = useState(() => STEPS_LIST[currentStep].value);
+
+  const disabledSteps = useMemo(
+    () =>
+      STEPS_LIST.reduce<number[]>(
+        (prevSteps, nextSteps, index) =>
+          nextSteps.isDisabled ? [...prevSteps, index] : prevSteps,
+        []
+      ),
+    []
+  );
 
   return (
     <StepSliderInput
@@ -11,11 +21,7 @@ export function SecondStepSliderExample() {
       steps={STEPS_LIST.length}
       currentStep={currentStep}
       highlightedFrom={STEPS_LIST.findIndex((step) => step.isHighlighted)}
-      disabledSteps={STEPS_LIST.reduce<number[]>(
-        (prevSteps, nextSteps, index) =>
-          nextSteps.isDisabled ? [...prevSteps, index] : prevSteps,
-        []
-      )}
+      disabledSteps={disabledSteps}
       onChange={(nextValue) => {
         setValue(nextValue);
 
