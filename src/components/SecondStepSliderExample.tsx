@@ -5,6 +5,11 @@ export function SecondStepSliderExample() {
   const [currentStep, setCurrentStep] = useState(0);
   const [value, setValue] = useState(() => STEPS_LIST[currentStep].value);
 
+  const highlightedFrom = useMemo(
+    () => STEPS_LIST.findIndex((step) => step.isHighlighted),
+    [STEPS_LIST]
+  );
+
   const disabledSteps = useMemo(
     () =>
       STEPS_LIST.reduce<number[]>(
@@ -12,7 +17,7 @@ export function SecondStepSliderExample() {
           nextSteps.isDisabled ? [...prevSteps, index] : prevSteps,
         []
       ),
-    []
+    [STEPS_LIST]
   );
 
   return (
@@ -20,7 +25,7 @@ export function SecondStepSliderExample() {
       value={value}
       steps={STEPS_LIST.length}
       currentStep={currentStep}
-      highlightedFrom={STEPS_LIST.findIndex((step) => step.isHighlighted)}
+      highlightedFrom={highlightedFrom}
       disabledSteps={disabledSteps}
       onChange={(nextValue) => {
         setValue(nextValue);
