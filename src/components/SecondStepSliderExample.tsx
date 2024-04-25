@@ -31,8 +31,9 @@ export function SecondStepSliderExample() {
         setValue(nextValue);
 
         const closestStep = STEPS_LIST.reduce((prevStep, currStep) =>
+          !currStep.isDisabled &&
           Math.abs(currStep.value - nextValue) <=
-          Math.abs(prevStep.value - nextValue)
+            Math.abs(prevStep.value - nextValue)
             ? currStep
             : prevStep
         );
@@ -83,9 +84,14 @@ const STEPS_LIST = [
     title: "60 ETH",
   },
   {
+    value: 90,
+    subtitle: "90%",
+    title: "90 ETH",
+    isDisabled: true,
+  },
+  {
     value: 100,
     subtitle: "100%",
     title: "100 ETH",
-    isDisabled: true,
   },
 ];
