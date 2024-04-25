@@ -74,7 +74,7 @@ export const Dot = styled("div")<DotProps>`
     background-color: ${getDotBgColor};
     border-radius: 50%;
     opacity: ${({ isDisabled, isVisible }) =>
-      isVisible ? 1 : isDisabled ? 0.1 : 0};
+      isDisabled ? 0.1 : isVisible ? 1 : 0};
     transition: inherit;
   }
 `;

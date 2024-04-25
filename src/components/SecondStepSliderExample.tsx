@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { StepSliderInput } from './StepSliderInput';
+import { useState } from "react";
+import { StepSliderInput } from "./StepSliderInput";
 
 export function SecondStepSliderExample() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -8,6 +8,18 @@ export function SecondStepSliderExample() {
   return (
     <StepSliderInput
       value={value}
+      steps={STEPS_LIST.length}
+      currentStep={currentStep}
+      highlightedFrom={STEPS_LIST.findIndex((step) => step.isHighlighted)}
+      disabledSteps={STEPS_LIST.reduce<number[]>(
+        (prevSteps, nextSteps, index) => {
+          if (nextSteps.isDisabled) {
+            prevSteps.push(index);
+          }
+          return prevSteps;
+        },
+        []
+      )}
       onChange={(nextValue) => {
         setValue(nextValue);
 
@@ -24,13 +36,10 @@ export function SecondStepSliderExample() {
 
         setCurrentStep(nextCurrentStep);
       }}
-      steps={STEPS_LIST.length}
-      currentStep={currentStep}
       onCurrentStepChange={(nextCurrentStep) => {
         setCurrentStep(nextCurrentStep);
         setValue(STEPS_LIST[nextCurrentStep].value);
       }}
-      highlightedFrom={STEPS_LIST.findIndex((el) => el.isHighlighted)}
       tooltipContent={
         <>
           <span>{STEPS_LIST[currentStep].title}</span>
@@ -47,27 +56,29 @@ export function SecondStepSliderExample() {
 const STEPS_LIST = [
   {
     value: 0,
-    title: '0 ETH',
+    title: "0 ETH",
   },
   {
     value: 10,
-    subtitle: '10%',
-    title: '10 ETH',
+    subtitle: "10%",
+    title: "10 ETH",
+    isDisabled: true,
   },
   {
     value: 50,
-    title: '50 ETH',
-    subtitle: '50%',
+    title: "50 ETH",
+    subtitle: "50%",
     isHighlighted: true,
   },
   {
     value: 60,
-    subtitle: '60%',
-    title: '60 ETH',
+    subtitle: "60%",
+    title: "60 ETH",
   },
   {
     value: 100,
-    subtitle: '100%',
-    title: '100 ETH',
+    subtitle: "100%",
+    title: "100 ETH",
+    isDisabled: true,
   },
 ];
