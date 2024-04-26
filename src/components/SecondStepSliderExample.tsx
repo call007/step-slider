@@ -53,7 +53,9 @@ export function SecondStepSliderExample() {
           <span>{STEPS_LIST[currentStep].title}</span>
 
           {STEPS_LIST[currentStep].subtitle && (
-            <span>{STEPS_LIST[currentStep].subtitle}</span>
+            <span style={{ fontSize: "12px", opacity: 0.5 }}>
+              {STEPS_LIST[currentStep].subtitle}
+            </span>
           )}
         </>
       }
