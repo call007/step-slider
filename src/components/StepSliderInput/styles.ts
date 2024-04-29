@@ -1,7 +1,7 @@
-import { css } from '@emotion/react';
-import styled from '@emotion/styled';
+import { css } from "@emotion/react";
+import styled from "@emotion/styled";
 
-export const Container = styled('div')`
+export const Container = styled("div")`
   --step-slider-container-radius: 0.8rem;
   position: relative;
   isolation: isolate;
@@ -24,19 +24,21 @@ type WrapperProps = {
   isVisible: boolean;
 };
 
-export const Wrapper = styled('div')<WrapperProps>`
+export const Wrapper = styled("div")<WrapperProps>`
   display: flex;
   gap: 1rem;
   width: 20.3rem;
   height: 4rem;
-  transition: opacity ${(props) => (props.isVisible ? '0.2s' : '0s')};
+  text-align: left;
+  transition: opacity ${(props) => (props.isVisible ? "0.2s" : "0s")};
   opacity: ${(props) => (props.isVisible ? 1 : 0)};
 `;
 
-export const Label = styled('span')`
+export const Label = styled("span")`
   pointer-events: none;
-  flex-shrink: 0;
+  flex-shrink: 1000;
   align-self: center;
+  min-width: 5.5rem;
   font-size: 1.3rem;
 `;
 
@@ -44,7 +46,7 @@ type InputProps = {
   length: number;
 };
 
-export const Input = styled('input')<InputProps>`
+export const Input = styled("input")<InputProps>`
   box-sizing: content-box;
   position: relative;
   z-index: 2;
@@ -59,7 +61,8 @@ export const Input = styled('input')<InputProps>`
   font-feature-settings: "tnum", "ss01", "cv05", "cv08";
   color: #fff;
   background-color: transparent;
-  border-radius: 0 var(--step-slider-container-radius) var(--step-slider-container-radius) 0;
+  border-radius: 0 var(--step-slider-container-radius)
+    var(--step-slider-container-radius) 0;
   outline: 0;
   transition: background-color 0.2s;
 
