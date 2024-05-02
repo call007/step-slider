@@ -48,6 +48,7 @@ export function StepSliderInput({
         isVisible={isSliderVisible}
         onDragStart={() => {
           setIsSliderVisible(true);
+          setIsInputFocusingByUser(false);
         }}
         onDragEnd={() => {
           setIsSliderVisible(false);
