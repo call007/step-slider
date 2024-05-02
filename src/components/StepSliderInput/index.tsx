@@ -61,7 +61,9 @@ export function StepSliderInput({
         css={Styled.stepSilder}
         {...otherProps}
       >
-        <Styled.InputCursor length={valueLength}>&nbsp;</Styled.InputCursor>
+        {!isSliderVisible && (
+          <Styled.InputCursor length={valueLength}>&nbsp;</Styled.InputCursor>
+        )}
       </StepSlider>
     </Styled.Container>
   );
