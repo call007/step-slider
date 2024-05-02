@@ -9,11 +9,6 @@ export const Container = styled("div")`
   padding-left: 1.5rem;
   background-color: rgba(0, 0, 0, 0.25);
   border-radius: var(--step-slider-container-radius);
-  transition: background-color 0.2s;
-
-  &:focus-within {
-    background-color: rgba(0, 0, 0, 0.4);
-  }
 `;
 
 export const stepSilder = css`
@@ -73,8 +68,9 @@ export const Input = styled("input")<InputProps>`
   outline: 0;
   transition: background-color 0.2s;
 
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.2);
+  &:focus {
+    background-color: ${(props) =>
+      props.isLargerZIndex && `rgba(0, 0, 0, 0.2)`};
   }
 `;
 
