@@ -22,6 +22,7 @@ export function SecondStepSliderExample() {
 
   return (
     <StepSliderInput
+      name="SecondStepSliderExample"
       value={value}
       steps={STEPS_LIST.length}
       currentStep={currentStep}

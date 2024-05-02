@@ -22,9 +22,9 @@ export const useController = ({
   currentStep,
   disabledSteps,
   onCurrentStepChange,
-  onClick,
   onDragStart,
   onDragEnd,
+  onClick,
 }: UseController) => {
   const [steps, setSteps] = useState(passedSteps);
   const [isDragging, setIsDragging] = useState(false);
@@ -92,7 +92,9 @@ export const useController = ({
           document.documentElement.style.removeProperty("cursor");
           document.documentElement.style.removeProperty("pointer-events");
         },
-        onClick,
+        onClick(self) {
+          if (self.deltaX === 0) onClick?.();
+        },
       });
     },
     { scope: containerRef, dependencies: [steps], revertOnUpdate: true }

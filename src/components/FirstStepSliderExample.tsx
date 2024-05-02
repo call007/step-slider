@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { StepSliderInput } from './StepSliderInput';
+import { useState } from "react";
+import { StepSliderInput } from "./StepSliderInput";
 
 const max = 1000;
 const steps = 10;
@@ -17,6 +17,7 @@ export function FirstStepSliderExample() {
   return (
     <>
       <StepSliderInput
+        name="FirstStepSliderExample"
         value={value}
         onChange={(nextValue) => {
           setValue(nextValue);
@@ -41,7 +42,7 @@ export function FirstStepSliderExample() {
           <>
             <span>{value} ETH</span>
             {value > 0 && (
-              <span style={{ fontSize: '12px', opacity: 0.5 }}>{percent}</span>
+              <span style={{ fontSize: "12px", opacity: 0.5 }}>{percent}</span>
             )}
           </>
         }

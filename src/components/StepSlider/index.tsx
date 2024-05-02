@@ -2,8 +2,10 @@ import { range } from "lodash-es";
 import { Props } from "./types";
 import { useController } from "./useController";
 import * as Styled from "./styles";
+import { PropsWithChildren } from "react";
 
 export function StepSlider({
+  children,
   steps: passedSteps,
   currentStep,
   disabledSteps,
@@ -14,8 +16,9 @@ export function StepSlider({
   onCurrentStepChange,
   onDragStart,
   onDragEnd,
+  onClick,
   ...otherProps
-}: Props) {
+}: PropsWithChildren<Props>) {
   const { steps, containerRef, isDragging } = useController({
     steps: passedSteps,
     currentStep,
@@ -23,6 +26,7 @@ export function StepSlider({
     onCurrentStepChange,
     onDragStart,
     onDragEnd,
+    onClick,
   });
 
   return (
@@ -59,6 +63,8 @@ export function StepSlider({
           </Styled.Dot>
         );
       })}
+
+      {children}
     </Styled.Container>
   );
 }

@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 
 export const Container = styled("div")`
   --step-slider-container-radius: 0.8rem;
+  --input-padding: 1.5rem;
   position: relative;
   isolation: isolate;
   padding-left: 1.5rem;
@@ -42,23 +43,28 @@ export const Label = styled("span")`
   font-size: 1.3rem;
 `;
 
-type InputProps = {
-  length: number;
-};
-
-export const Input = styled("input")<InputProps>`
-  box-sizing: content-box;
-  position: relative;
-  z-index: 2;
-  width: ${(props) => `calc(${props.length}ch + 2px)`};
-  min-width: 1ch;
-  padding: 0 1.5rem;
-  border: 0;
-  margin-left: auto;
-  text-align: right;
+const input = css`
   font-size: 1.3rem;
   font-family: "Inter", sans-serif;
   font-feature-settings: "tnum", "ss01", "cv05", "cv08";
+  min-width: 1ch;
+`;
+
+type InputProps = {
+  length: number;
+  isLargerZIndex: boolean;
+};
+
+export const Input = styled("input")<InputProps>`
+  ${input};
+  box-sizing: content-box;
+  position: relative;
+  z-index: ${(props) => props.isLargerZIndex && 2};
+  width: ${(props) => `calc(${props.length}ch + 2px)`};
+  padding: 0 var(--input-padding);
+  border: 0;
+  margin-left: auto;
+  text-align: right;
   color: #fff;
   background-color: transparent;
   border-radius: 0 var(--step-slider-container-radius)
@@ -69,4 +75,18 @@ export const Input = styled("input")<InputProps>`
   &:hover {
     background-color: rgba(0, 0, 0, 0.2);
   }
+`;
+
+type InputCursor = {
+  length: number;
+};
+
+export const InputCursor = styled("div")<InputCursor>`
+  ${input};
+  cursor: text;
+  position: absolute;
+  top: 50%;
+  right: var(--input-padding);
+  width: ${(props) => `calc(${props.length}ch + 2px)`};
+  transform: translateY(-50%);
 `;
