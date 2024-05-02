@@ -93,7 +93,7 @@ export const useController = ({
           document.documentElement.style.removeProperty("pointer-events");
         },
         onClick(self) {
-          if (Math.ceil(self.startX ?? 0) === Math.ceil(self.x ?? 0)) {
+          if (Math.round(self.startX ?? 0) === Math.round(self.x ?? 0)) {
             onClick?.();
           }
         },
