@@ -44,10 +44,11 @@ export const Label = styled("span")`
   font-size: 1.3rem;
 `;
 
-const input = css`
+const input = (length: number) => css`
   font-size: 1.3rem;
   font-family: "Inter", sans-serif;
   font-feature-settings: "tnum", "ss01", "cv05", "cv08";
+  width: ${`calc(${length}ch + 2px)`};
   min-width: 1ch;
 `;
 
@@ -57,11 +58,10 @@ type InputProps = {
 };
 
 export const Input = styled("input")<InputProps>`
-  ${input};
+  ${(props) => input(props.length)};
   box-sizing: content-box;
   position: relative;
   z-index: ${(props) => props.isLargerZIndex && 2};
-  width: ${(props) => `calc(${props.length}ch + 2px)`};
   padding: 0 var(--input-padding);
   border: 0;
   margin-left: auto;
@@ -83,11 +83,10 @@ type InputCursor = {
 };
 
 export const InputCursor = styled("div")<InputCursor>`
-  ${input};
+  ${(props) => input(props.length)};
   cursor: text;
   position: absolute;
   top: 50%;
   right: var(--input-padding);
-  width: ${(props) => `calc(${props.length}ch + 2px)`};
   transform: translateY(-50%);
 `;
