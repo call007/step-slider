@@ -38,8 +38,8 @@ export function StepSlider({
       {...otherProps}
     >
       {range(steps).map((index) => {
-        const isActive = index === currentStep;
         const isDisabled = !!disabledSteps?.includes(index);
+        const isActive = index === currentStep && !isDisabled;
         const isHighlighted =
           typeof highlightedFrom === "number" && index >= highlightedFrom;
 
