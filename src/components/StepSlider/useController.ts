@@ -99,7 +99,11 @@ export const useController = ({
         },
       });
     },
-    { scope: containerRef, dependencies: [steps], revertOnUpdate: true }
+    {
+      scope: containerRef,
+      dependencies: [steps, disabledSteps],
+      revertOnUpdate: true,
+    }
   );
 
   useEffect(() => {
