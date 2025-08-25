@@ -31,7 +31,7 @@ export const Wrapper = styled("div")<WrapperProps>`
   opacity: ${(props) => (props.isVisible ? 1 : 0)};
 `;
 
-export const Label = styled("span")`
+export const Label = styled("label")`
   pointer-events: none;
   flex-shrink: 1000;
   align-self: center;

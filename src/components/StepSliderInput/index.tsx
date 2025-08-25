@@ -30,12 +30,13 @@ export function StepSliderInput({
   return (
     <Styled.Container>
       <Styled.Wrapper isVisible={!isSliderVisible}>
-        <Styled.Label>Amount, ETH</Styled.Label>
+        <Styled.Label htmlFor={name}>Amount, ETH</Styled.Label>
 
         <Styled.Input
           ref={inputRef}
           type="text"
           name={name}
+          id={name}
           value={value}
           isLargerZIndex={isInputFocusingByUser}
           length={valueLength}
