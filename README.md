@@ -1,6 +1,6 @@
 # Step Slider
 
-A lightweight step-based slider component for React. It snaps to
+A lightweight step-based slider for React + TypeScript — powered by **GSAP** for buttery-smooth animations It snaps to
 discrete values (“steps”), supports labels and marks, and feels great with
 mouse and touch.
 
