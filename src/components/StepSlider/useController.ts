@@ -51,7 +51,7 @@ export const useController = ({
       let staleCurrentStep = 0;
       let startX = 0;
 
-      Observer.create({
+      const gsapObserver = Observer.create({
         target: containerRef.current,
         type: "touch,pointer",
         dragMinimum: 3,
@@ -98,6 +98,10 @@ export const useController = ({
           }
         },
       });
+
+      return () => {
+        gsapObserver.kill();
+      };
     },
     {
       scope: containerRef,
