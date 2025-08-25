@@ -1,8 +1,8 @@
 # Step Slider
 
-A lightweight, accessible step-based slider component for React. It snaps to
+A lightweight step-based slider component for React. It snaps to
 discrete values (“steps”), supports labels and marks, and feels great with
-mouse, touch, and keyboard.
+mouse and touch.
 
 **Live demo →** https://call007.github.io/step-slider/
 
